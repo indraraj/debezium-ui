@@ -44,17 +44,17 @@ With the latest update to Debezium UI you need a properly running Debezium insta
 
 #### DEV Infrastructure with Docker-Compose
 
-You can setup a running DEV infrastructure with Zookeeper, Kafka, Debezium, MySql, Postgres, SQL Server and
-Mongo DB using docker-compose:
-
 ```bash
 git clone https://github.com/debezium/debezium-ui
 cd debezium-ui
 ```
 
+You can setup a running DEV infrastructure with Zookeeper, Kafka, Debezium, MySql, Postgres, SQL Server and
+Mongo DB using docker compose:
+
 ```
 ## optionally make sure you have the latest images:
-$ docker-compose pull
+$ docker compose pull
 
 [+] Pulling 97/60
  ✔ mysql 11 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled
@@ -66,7 +66,7 @@ $ docker-compose pull
  ✔ connect 22 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled    
 
 ## start containers
-$ docker-compose up -d
+$ docker compose up -d
 
 [+] Running 7/7
  ✔ Container debezium-ui-zookeeper-1  Started
@@ -84,6 +84,7 @@ Postgres will be available on local port **5432**.
 MySQL will be available on local port **3306**.  
 SqlServer will be available on local port **1433**
 Mongo DB will be available after ~20 seconds on local port **27017** (connect via `mongo -u debezium -p dbz --authenticationDatabase admin localhost:27017/inventory`).
+
 Kafka will be available on local port **9092**.  
 
 ### UI Development
@@ -102,9 +103,10 @@ Debezium UI will be available on [http://localhost:9000](http://localhost:9000)
 
 ### Cleanup
 
+later stop running containers.
+
 ```
-## later stop containers:
-$ docker-compose down
+$ docker compose down
 
 [+] Running 8/7
  ✔ Container debezium-ui-connect-1    Removed
